@@ -14,7 +14,7 @@ def start_bot(message):
                                       f'Вот список моих функций:\n '
                                       f'/stop_games - Подборка игр по жанрам и оценкам редакции с 2010 года\n '
                                       f' \n'
-                                      f'/playlist - Небольшая подборка музыки от автора\n)'
+                                      f'/playlist - Небольшая подборка музыки от автора)\n'
                                       f' \n '
                                       f'/help - Подсказка с командами')
 
@@ -110,14 +110,14 @@ def on_click(message):
 def genre_game(message):
     markup = types.ReplyKeyboardMarkup()
 
-    btn2 = types.KeyboardButton('15 - Изумительно')
-    btn3 = types.KeyboardButton('30 - Изумительно')
-    btn5 = types.KeyboardButton('15 - Похвально')
-    btn6 = types.KeyboardButton('30 - Похвально')
-    btn8 = types.KeyboardButton('15 - Проходняк')
-    btn9 = types.KeyboardButton('30 - Проходняк')
-    btn11 = types.KeyboardButton('15 - Мусор')
-    btn12 = types.KeyboardButton('30 - Мусор')
+    btn2 = types.KeyboardButton('5 - Изумительно')
+    btn3 = types.KeyboardButton('15 - Изумительно')
+    btn5 = types.KeyboardButton('5 - Похвально')
+    btn6 = types.KeyboardButton('15 - Похвально')
+    btn8 = types.KeyboardButton('5 - Проходняк')
+    btn9 = types.KeyboardButton('15 - Проходняк')
+    btn11 = types.KeyboardButton('5 - Мусор')
+    btn12 = types.KeyboardButton('15 - Мусор')
     markup.row(btn2, btn3)
     markup.row(btn5, btn6)
     markup.row(btn8, btn9)
@@ -133,13 +133,13 @@ def ono_click(message):
     if message.text.endswith('Изумительно'):
         oce = 'izumitelno'
         vyvod_games(message, limit)
-    elif message.text == 'Похвально':
+    elif message.text.endswith('Похвально'):
         oce = 'pohvalno'
         vyvod_games(message, limit)
-    elif message.text == 'Проходняк':
+    elif message.text.endswith('Проходняк'):
         oce = 'prohodnyak'
         vyvod_games(message, limit)
-    elif message.text == 'Мусор':
+    elif message.text.endswith('Мусор'):
         oce = 'musor'
         vyvod_games(message, limit)
 
